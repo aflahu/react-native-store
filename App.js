@@ -1,6 +1,6 @@
 import React from 'react';
 // import { StyleSheet, View } from 'react-native';
-import { TabNavigator, DrawerNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 import Home from './src/Home';
 import Keranjang from './src/Keranjang';
 import Suka from './src/Suka';
@@ -12,8 +12,12 @@ const Tab = TabNavigator({
   Suka: { screen: Suka }
 });
 
-const Drawer = DrawerNavigator({
+const Sn = StackNavigator({
   tab: { screen: Tab },
+  pengaturan: { screen: Pengaturan }
+});
+const Drawer = DrawerNavigator({
+  home: { screen: Sn },
   pengaturan: { screen: Pengaturan }
 });
 

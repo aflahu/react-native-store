@@ -3,6 +3,7 @@ import { Text } from 'react-native';
 
 class Pengaturan extends Component {
   static navigationOptions = {
+    title: 'Pengaturan',
     drawerLabel: 'Pengaturan'
   };
   render() {
