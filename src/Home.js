@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, FlatList } from 'react-native';
 
 class Home extends Component {
   static navigationOptions = {
@@ -7,7 +7,12 @@ class Home extends Component {
     tabBarLabel: 'Home'
   };
   render() {
-    return <Text>This is home</Text>;
+    return (
+      <FlatList
+        data={[{ key: 'a' }, { key: 'b' }]}
+        renderItem={({ item }) => <Text>{item.key}</Text>}
+      />
+    );
   }
 }
 
