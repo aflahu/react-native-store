@@ -4,23 +4,45 @@ import Keranjang from './../Screens/Keranjang';
 import Suka from './../Screens/Suka';
 import Pengaturan from './../Screens/Pengaturan';
 
-const Tab = TabNavigator({
-  Home: {
-    screen: Home
+const Tab = TabNavigator(
+  {
+    Home: {
+      screen: Home
+    },
+    Keranjang: {
+      screen: Keranjang
+    },
+    Suka: {
+      screen: Suka
+    }
   },
-  Keranjang: {
-    screen: Keranjang
-  },
-  Suka: {
-    screen: Suka
+  {
+    tabBarOptions: {
+      activeTintColor: 'black',
+      inactiveTintColor: 'grey',
+      style: {
+        backgroundColor: 'white'
+      },
+      labelStyle: {
+        fontSize: 12
+      },
+      indicatorStyle: {
+        backgroundColor: 'black'
+      }
+    }
   }
-});
+);
 
 const Sn = StackNavigator({
   tab: {
     screen: Tab,
     navigationOptions: {
-      title: 'Store'
+      title: 'Store',
+      headerStyle: {
+        backgroundColor: 'white',
+        paddingTop: 17,
+        elevation: 0
+      },
     }
   },
   pengaturan: {
