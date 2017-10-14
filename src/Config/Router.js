@@ -1,4 +1,6 @@
+import React from 'react';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
+import { Icon } from 'react-native-elements';
 import Home from './../Screens/Home';
 import Keranjang from './../Screens/Keranjang';
 import Suka from './../Screens/Suka';
