@@ -2,19 +2,19 @@ import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-const Menu = ({ navigation }) => {
+const HeaderIcon = ({ navigation, name, type }) => {
   return (
-    <View>
+    <View style={styles.HeaderIcon}>
       <TouchableOpacity onPress={() => navigation.navigate('DrawerOpen')}>
-        <Icon name="ios-menu-outline" type="ionicon" />
+        <Icon name={name} type={type} />
       </TouchableOpacity>
     </View>
   );
 };
 
 const styles = {
-  menu: {
-    backgroundColor: 'red'
+  HeaderIcon: {
+    width: 50
   }
 };
-export default Menu;
+export default HeaderIcon;

@@ -4,8 +4,7 @@ import Home from './../Screens/Home';
 import Keranjang from './../Screens/Keranjang';
 import Suka from './../Screens/Suka';
 import Pengaturan from './../Screens/Pengaturan';
-import Menu from '../Components/Menu';
-import Search from '../Components/Search';
+import HeaderIcon from '../Components/HeaderIcon';
 
 const Tab = TabNavigator(
   {
@@ -24,7 +23,8 @@ const Tab = TabNavigator(
       activeTintColor: 'black',
       inactiveTintColor: 'grey',
       style: {
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        height: 45
       },
       labelStyle: {
         fontSize: 12
@@ -43,16 +43,16 @@ const Sn = StackNavigator({
       title: 'Store',
       headerStyle: {
         backgroundColor: 'white',
-        paddingTop: 22,
-        elevation: 0,
-        paddingLeft: 15,
-        paddingRight: 15
+        paddingTop: 25,
+        elevation: 0
       },
       headerTitleStyle: {
         alignSelf: 'center'
       },
-      headerLeft: <Menu navigation={navigation} />,
-      headerRight: <Search />
+      headerLeft: <HeaderIcon name="ios-menu-outline" type="ionicon" navigation={navigation} />,
+      headerRight: (
+        <HeaderIcon name="ios-chatbubbles-outline" type="ionicon" navigation={navigation} />
+      )
     })
   },
   pengaturan: {
