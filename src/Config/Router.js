@@ -1,8 +1,11 @@
+import React from 'react';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 import Home from './../Screens/Home';
 import Keranjang from './../Screens/Keranjang';
 import Suka from './../Screens/Suka';
 import Pengaturan from './../Screens/Pengaturan';
+import Menu from '../Components/Menu';
+import Search from '../Components/Search';
 
 const Tab = TabNavigator(
   {
@@ -36,14 +39,21 @@ const Tab = TabNavigator(
 const Sn = StackNavigator({
   tab: {
     screen: Tab,
-    navigationOptions: {
+    navigationOptions: ({ navigation }) => ({
       title: 'Store',
       headerStyle: {
         backgroundColor: 'white',
-        paddingTop: 17,
-        elevation: 0
+        paddingTop: 22,
+        elevation: 0,
+        paddingLeft: 15,
+        paddingRight: 15
       },
-    }
+      headerTitleStyle: {
+        alignSelf: 'center'
+      },
+      headerLeft: <Menu navigation={navigation} />,
+      headerRight: <Search />
+    })
   },
   pengaturan: {
     screen: Pengaturan,

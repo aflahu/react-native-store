@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { View, Text } from 'react-native';
+import Kartu from '../Components/Kartu';
 
 class Suka extends Component {
   render() {
-    return <Text>This is Suka</Text>;
+    return (
+      <View>
+        <Text>Kesukaan Sista</Text>
+        <Kartu />
+      </View>
+    );
   }
 }
 
