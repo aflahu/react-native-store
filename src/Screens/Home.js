@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { View, FlatList, Text, TouchableOpacity } from 'react-native';
+import { Button } from 'react-native-elements';
+import Modal from 'react-native-modal';
 import Kartu from '../Components/Kartu';
 
 const Data = [
@@ -34,8 +36,28 @@ const Data = [
 ];
 
 class Home extends Component {
+  state = {
+    isModalVisible: false
+  };
+
+  _showModal = () => this.setState({ isModalVisible: true });
+
+  _hideModal = () => this.setState({ isModalVisible: false });
+
   render() {
-    return <FlatList data={Data} renderItem={({ item }) => <Kartu item={item} />} />;
+    return (
+      <View style={{ flex: 1 }}>
+        <FlatList data={Data} renderItem={({ item }) => <Kartu item={item} />} />
+        <Button title="Tampilkan Modal" onPress={this._showModal} />
+        <Modal isVisible={this.state.isModalVisible}>
+          <View style={{ flex: 1 }}>
+            <TouchableOpacity onPress={this._hideModal}>
+              <Text>Hello!</Text>
+            </TouchableOpacity>
+          </View>
+        </Modal>
+      </View>
+    );
   }
 }
 
