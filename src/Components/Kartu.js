@@ -6,16 +6,20 @@ import IsiKananKartu from './IsiKananKartu';
 
 class Kartu extends Component {
   render() {
-    return (
-      <Card image={{ uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg' }}>
-        <View style={styles.content}>
-          <IsiKiriKartu style={styles.kiri} />
-          <IsiKananKartu style={styles.kanan} />
-        </View>
-        <Divider style={{ marginBottom: 10, marginTop: 10, backgroundColor: 'grey' }} />
-        <Button title="Beli" />
-      </Card>
-    );
+    if (this.props.item !== undefined) {
+      const { nama, harga, suka } = this.props.item;
+      return (
+        <Card image={{ uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg' }}>
+          <View style={styles.content}>
+            <IsiKiriKartu harga={harga} nama={nama} style={styles.kiri} />
+            <IsiKananKartu suka={suka} style={styles.kanan} />
+          </View>
+          <Divider style={{ marginBottom: 10, marginTop: 10, backgroundColor: 'grey' }} />
+          <Button title="Beli" />
+        </Card>
+      );
+    }
+    return null;
   }
 }
 

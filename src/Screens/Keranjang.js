@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
-import { Card, Divider } from 'react-native-elements';
+import { View, Text } from 'react-native';
+import { Card, Divider, Button } from 'react-native-elements';
 
 class Keranjang extends Component {
   render() {
     return (
-      <Card>
-        <Text>disini item yang mau dibeli</Text>
-        <Divider />
-        <Text>disini detile harga</Text>
-      </Card>
+      <View>
+        <Card>
+          <Text>disini item yang mau dibeli</Text>
+          <Divider />
+          <Text>disini detile harga</Text>
+        </Card>
+        <Card style={styles.cardBottom}>
+          <Button title="Bayar Sekarang" />
+        </Card>
+      </View>
     );
   }
 }
+
+const styles = {
+  cardBottom: {
+    position: 'absolute'
+  }
+};
 
 export default Keranjang;

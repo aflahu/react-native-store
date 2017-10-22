@@ -7,7 +7,7 @@ class IsiKananKartu extends Component {
     return (
       <View style={this.props.style}>
         <Icon name="heart" type="evilicon" />
-        <Text style={{ textAlign: 'center' }}>2K</Text>
+        <Text style={{ textAlign: 'center' }}>{this.props.suka}</Text>
       </View>
     );
   }

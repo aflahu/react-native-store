@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
 class IsiKiriKartu extends Component {
-  render(props) {
+  render() {
     return (
       <View style={this.props.style}>
-        <Text>Rp.20.000</Text>
-        <Text>Ini adalah Judul dari produk</Text>
+        <Text>Rp.{this.props.harga}</Text>
+        <Text>{this.props.nama}</Text>
       </View>
     );
   }
