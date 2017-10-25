@@ -1,10 +1,12 @@
 import React from 'react';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
+import LoginForm from '../Components/LoginForm';
 import Home from './../Screens/Home';
 import Keranjang from './../Screens/Keranjang';
 import Suka from './../Screens/Suka';
 import Pengaturan from './../Screens/Pengaturan';
 import HeaderIcon from '../Components/HeaderIcon';
+import DrawerMenu from '../Components/DrawerMenu';
 
 const Tab = TabNavigator(
   {
@@ -37,7 +39,7 @@ const Tab = TabNavigator(
 );
 
 const Sn = StackNavigator({
-  tab: {
+  Tab: {
     screen: Tab,
     navigationOptions: ({ navigation }) => ({
       title: 'Store',
@@ -55,27 +57,38 @@ const Sn = StackNavigator({
       )
     })
   },
-  pengaturan: {
+  Pengaturan: {
     screen: Pengaturan,
     navigationOptions: {
       title: 'Pengaturan'
     }
+  },
+  LoginForm: {
+    screen: LoginForm,
+    navigationOptions: {
+      title: 'Login',
+    }
   }
 });
 
-const Drawer = DrawerNavigator({
-  home: {
-    screen: Sn,
-    navigationOptions: {
-      drawerLabel: 'Home'
+const Drawer = DrawerNavigator(
+  {
+    home: {
+      screen: Sn,
+      navigationOptions: {
+        drawerLabel: 'Home'
+      }
+    },
+    Pengaturan: {
+      screen: Pengaturan,
+      navigationOptions: {
+        drawerLabel: 'Pengaturan'
+      }
     }
   },
-  pengaturan: {
-    screen: Pengaturan,
-    navigationOptions: {
-      drawerLabel: 'Pengaturan'
-    }
+  {
+    contentComponent: DrawerMenu
   }
-});
+);
 
 export default Drawer;
