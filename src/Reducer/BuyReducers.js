@@ -1,4 +1,5 @@
 import {
+  SHOW_MODAL_CHANGED,
   ID_PRODUCT_CHANGED,
   COLOR_CHANGED,
   SIZE_CHANGED,
@@ -7,6 +8,7 @@ import {
 } from '../Actions/type';
 
 const INTIAL_STATE = {
+  showModal: false,
   idProduct: '',
   color: '',
   size: null,
@@ -16,6 +18,8 @@ const INTIAL_STATE = {
 
 export default (state = INTIAL_STATE, action) => {
   switch (action.type) {
+    case SHOW_MODAL_CHANGED:
+      return { ...state, showModal: action.payload };
     case ID_PRODUCT_CHANGED:
       return { ...state, idProduct: action.payload };
     case COLOR_CHANGED:

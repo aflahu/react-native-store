@@ -1,10 +1,18 @@
 import {
+  SHOW_MODAL_CHANGED,
   ID_PRODUCT_CHANGED,
   COLOR_CHANGED,
   SIZE_CHANGED,
   QUANTITY_CHANGED,
   TOTAL_PRICE
 } from './type';
+
+export const showModalChanged = boolean => {
+  return {
+    type: SHOW_MODAL_CHANGED,
+    payload: boolean
+  };
+};
 
 export const idProductChanged = text => {
   return {

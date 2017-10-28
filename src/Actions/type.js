@@ -12,6 +12,7 @@ export const LOGIN_USER = 'login_user';
 // Buy type
 // =========================
 
+export const SHOW_MODAL_CHANGED = 'show_modal_changed';
 export const ID_PRODUCT_CHANGED = 'id_product_changed';
 export const COLOR_CHANGED = 'color_changed';
 export const QUANTITY_CHANGED = 'quantity_changed';

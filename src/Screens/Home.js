@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, FlatList, Text, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-elements';
+import { connect } from 'react-redux';
+import { showModalChanged } from '../Actions';
 import Modal from 'react-native-modal';
 import Kartu from '../Components/Kartu';
 
@@ -36,22 +38,18 @@ const Data = [
 ];
 
 class Home extends Component {
-  state = {
-    isModalVisible: false
-  };
+  onShowModal = () => this.props.showModalChanged(true);
 
-  _showModal = () => this.setState({ isModalVisible: true });
-
-  _hideModal = () => this.setState({ isModalVisible: false });
+  onHideModal = () => this.props.showModalChanged(false);
 
   render() {
     return (
       <View style={{ flex: 1 }}>
         <FlatList data={Data} renderItem={({ item }) => <Kartu item={item} />} />
-        <Button title="Tampilkan Modal" onPress={this._showModal} />
-        <Modal isVisible={this.state.isModalVisible}>
+        <Button title="Tampilkan Modal" onPress={this.onShowModal} />
+        <Modal isVisible={this.props.showModal}>
           <View style={{ flex: 1 }}>
-            <TouchableOpacity onPress={this._hideModal}>
+            <TouchableOpacity onPress={this.onHideModal}>
               <Text>Hello!</Text>
             </TouchableOpacity>
           </View>
@@ -61,4 +59,9 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = ({ buy }) => {
+  const { showModal } = buy;
+  return { showModal };
+};
+
+export default connect(mapStateToProps, { showModalChanged })(Home);
