@@ -15,7 +15,7 @@ class Kartu extends Component {
             <IsiKananKartu suka={suka} style={styles.kanan} />
           </View>
           <Divider style={{ marginBottom: 10, marginTop: 10, backgroundColor: 'grey' }} />
-          <Button title="Beli" />
+          <Button title="Beli" onPress={this.props.onToggleModal} />
         </Card>
       );
     }

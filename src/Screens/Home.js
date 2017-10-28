@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { View, FlatList, Text, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { showModalChanged } from '../Actions';
 import Modal from 'react-native-modal';
+import { showModalChanged } from '../Actions';
 import Kartu from '../Components/Kartu';
 
 const Data = [
@@ -38,18 +38,18 @@ const Data = [
 ];
 
 class Home extends Component {
-  onShowModal = () => this.props.showModalChanged(true);
-
-  onHideModal = () => this.props.showModalChanged(false);
+  onToggleModal = () => this.props.showModalChanged(!this.props.showModal);
 
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <FlatList data={Data} renderItem={({ item }) => <Kartu item={item} />} />
-        <Button title="Tampilkan Modal" onPress={this.onShowModal} />
+        <FlatList
+          data={Data}
+          renderItem={({ item }) => <Kartu item={item} onToggleModal={this.onToggleModal} />}
+        />
         <Modal isVisible={this.props.showModal}>
           <View style={{ flex: 1 }}>
-            <TouchableOpacity onPress={this.onHideModal}>
+            <TouchableOpacity onPress={this.onToggleModal}>
               <Text>Hello!</Text>
             </TouchableOpacity>
           </View>
