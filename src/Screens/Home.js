@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, FlatList, Text, TouchableOpacity } from 'react-native';
-import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import Modal from 'react-native-modal';
 import { showModalChanged } from '../Actions';
 import Kartu from '../Components/Kartu';
+import BuyForm from '../Components/BuyForm';
 
 const Data = [
   {
@@ -48,10 +48,11 @@ class Home extends Component {
           renderItem={({ item }) => <Kartu item={item} onToggleModal={this.onToggleModal} />}
         />
         <Modal isVisible={this.props.showModal}>
-          <View style={{ flex: 1 }}>
+          <View style={{ flex: 1, justifyContent: 'flex-end' }}>
             <TouchableOpacity onPress={this.onToggleModal}>
-              <Text>Hello!</Text>
+              <Text>Close!</Text>
             </TouchableOpacity>
+            <BuyForm></BuyForm>
           </View>
         </Modal>
       </View>

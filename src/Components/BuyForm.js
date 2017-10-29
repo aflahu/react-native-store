@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, Picker, TextInput } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Card, Button } from 'react-native-elements';
 
 class BuyForm extends Component {
+  state = { language: '' };
   render() {
     return (
-      <View>
+      <Card>
         <View>
           <Text>Pilih warna</Text>
           <Picker
@@ -37,9 +38,15 @@ class BuyForm extends Component {
         <Text>Harga</Text>
         <Button title="Bayar Sekarang" />
         <Button title="Masukkan Keranjang" />
-      </View>
+      </Card>
     );
   }
 }
+
+const styles = {
+  cardStyle: {
+    botton: 0
+  }
+};
 
 export default BuyForm;
