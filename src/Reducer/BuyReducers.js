@@ -4,7 +4,8 @@ import {
   COLOR_CHANGED,
   SIZE_CHANGED,
   QUANTITY_CHANGED,
-  TOTAL_PRICE
+  TOTAL_PRICE_CHANGED,
+  RESET_FORM
 } from '../Actions/type';
 
 const INTIAL_STATE = {
@@ -28,8 +29,10 @@ export default (state = INTIAL_STATE, action) => {
       return { ...state, size: action.payload };
     case QUANTITY_CHANGED:
       return { ...state, quantity: action.payload };
-    case TOTAL_PRICE:
+    case TOTAL_PRICE_CHANGED:
       return { ...state, total: action.payload };
+    case RESET_FORM:
+      return INTIAL_STATE;
     default:
       return state;
   }

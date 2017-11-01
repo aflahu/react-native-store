@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, FlatList, Text, TouchableOpacity } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import Modal from 'react-native-modal';
-import { showModalChanged } from '../Actions';
+import { showModalChanged, resetForm } from '../Actions';
 import Kartu from '../Components/Kartu';
 import BuyForm from '../Components/BuyForm';
 
@@ -38,7 +38,12 @@ const Data = [
 ];
 
 class Home extends Component {
-  onToggleModal = () => this.props.showModalChanged(!this.props.showModal);
+  onToggleModal = () => {
+    if (!this.props.showModal) {
+      this.props.resetForm();
+    }
+    this.props.showModalChanged(!this.props.showModal);
+  };
 
   render() {
     return (
@@ -47,12 +52,9 @@ class Home extends Component {
           data={Data}
           renderItem={({ item }) => <Kartu item={item} onToggleModal={this.onToggleModal} />}
         />
-        <Modal isVisible={this.props.showModal}>
+        <Modal isVisible={this.props.showModal} onBackdropPress={this.onToggleModal}>
           <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-            <TouchableOpacity onPress={this.onToggleModal}>
-              <Text>Close!</Text>
-            </TouchableOpacity>
-            <BuyForm></BuyForm>
+            <BuyForm />
           </View>
         </Modal>
       </View>
@@ -65,4 +67,4 @@ const mapStateToProps = ({ buy }) => {
   return { showModal };
 };
 
-export default connect(mapStateToProps, { showModalChanged })(Home);
+export default connect(mapStateToProps, { showModalChanged, resetForm })(Home);
