@@ -4,7 +4,8 @@ import {
   COLOR_CHANGED,
   SIZE_CHANGED,
   QUANTITY_CHANGED,
-  TOTAL_PRICE
+  TOTAL_PRICE_CHANGED,
+  RESET_FORM
 } from './type';
 
 export const showModalChanged = boolean => {
@@ -44,7 +45,13 @@ export const quantityChanged = number => {
 
 export const totalPrice = (price, quantity) => {
   return {
-    type: TOTAL_PRICE,
+    type: TOTAL_PRICE_CHANGED,
     payload: price * quantity
+  };
+};
+
+export const resetForm = () => {
+  return dispatch => {
+    dispatch({ type: RESET_FORM });
   };
 };
