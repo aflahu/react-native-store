@@ -52,7 +52,11 @@ class Home extends Component {
           data={Data}
           renderItem={({ item }) => <Kartu item={item} onToggleModal={this.onToggleModal} />}
         />
-        <Modal isVisible={this.props.showModal} onBackdropPress={this.onToggleModal}>
+        <Modal
+          isVisible={this.props.showModal}
+          onBackdropPress={this.onToggleModal}
+          onBackButtonPress={this.onToggleModal}
+        >
           <View style={{ flex: 1, justifyContent: 'flex-end' }}>
             <BuyForm />
           </View>
