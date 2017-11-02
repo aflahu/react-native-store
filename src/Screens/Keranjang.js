@@ -5,7 +5,7 @@ import { Card, Divider, Button } from 'react-native-elements';
 class Keranjang extends Component {
   render() {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <Card>
           <Text>disini item yang mau dibeli</Text>
           <Divider />
@@ -21,7 +21,10 @@ class Keranjang extends Component {
 
 const styles = {
   cardBottom: {
-    position: 'absolute'
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    marginBottom: 13
   }
 };
 

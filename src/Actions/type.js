@@ -23,3 +23,13 @@ export const BUY_SUCCESS = 'buy_success';
 export const BUY_FAIL = 'buy_fail';
 export const BASKET_SUCCESS = 'basket_success';
 export const BASKET_FAIL = 'basket_fail';
+
+// =========================
+// Basket type
+// =========================
+
+export const BASKET_ITEMS_CHANGED = 'basket_items_changed';
+export const SUBTOTAL_CHANGED = 'subtotal_changed';
+export const SHIPPING_PRICE_CHANGED = 'shipping_price_changed';
+export const COUPON_CHANGED = 'coupon_changed';
+export const TOTAL_CHANGED = 'total_changed';
